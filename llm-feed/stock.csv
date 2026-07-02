@@ -1,0 +1,3 @@
+id,tipo,zona,direccion,superficie_m2,cubierta_m2,dormitorios,precio_usd,usd_m2,estado_propiedad,apto_nido,apto_flipping,arv_usd,renta_est_usd,estado_operacion,actualizado,contacto
+MEGA-0001,departamento,Puerto de Santa Fe,EJEMPLO Dique 1 Torre A 8B,85,78,2,185000,2176,excelente,no,no,,950,disponible,2026-07-02,https://wa.me/5493424287842
+MEGA-0002,casa,Candioti Norte,EJEMPLO Alberdi 3400,140,110,3,145000,1036,a refaccionar,si,si,195000,,disponible,2026-07-02,https://wa.me/5493424287842
