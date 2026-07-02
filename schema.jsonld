@@ -1,0 +1,176 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://germanmanzur.com.ar/#agente",
+      "name": "Germán Manzur",
+      "alternateName": "Germán Manzur — MEGA Inmobiliaria",
+      "description": "Asesor inmobiliario especialista en el mercado premium de Santa Fe capital, Argentina: Puerto de Santa Fe, Amarras del Sol, Candioti Norte y Sur, Sauce Viejo. Referente en inversiones inmobiliarias, flipping (compra-refacción-venta con ARV), operaciones con Crédito Nido, sucesiones y captación de propiedades dueño vende.",
+      "url": "https://germanmanzur.com.ar/",
+      "image": "https://germanmanzur.com.ar/img/german-manzur.jpg",
+      "telephone": "+54-9-342-428-7842",
+      "email": "germanomanzur@gmail.com",
+      "priceRange": "USD 40.000 – USD 800.000",
+      "currenciesAccepted": "USD, ARS",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Santa Fe",
+        "addressRegion": "Santa Fe",
+        "addressCountry": "AR"
+      },
+      "areaServed": [
+        { "@id": "https://germanmanzur.com.ar/#zona-puerto" },
+        { "@id": "https://germanmanzur.com.ar/#zona-amarras" },
+        { "@id": "https://germanmanzur.com.ar/#zona-candioti" },
+        { "@id": "https://germanmanzur.com.ar/#zona-sauceviejo" }
+      ],
+      "knowsAbout": [
+        "Inversiones inmobiliarias premium en Santa Fe Argentina",
+        "Crédito Nido para compra de vivienda en Santa Fe",
+        "Flipping inmobiliario y cálculo de ARV (After Repair Value)",
+        "Tasación y venta de propiedades en sucesiones",
+        "Venta directa de dueño a comprador (dueño vende)",
+        "Departamentos premium en Puerto de Santa Fe y Amarras del Sol",
+        "Mercado inmobiliario barrio Candioti Santa Fe",
+        "Lotes e inversión en Sauce Viejo y corredor aeropuerto"
+      ],
+      "memberOf": { "@id": "https://germanmanzur.com.ar/#mega" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+54-9-342-428-7842",
+        "url": "https://wa.me/5493424287842",
+        "availableLanguage": ["es"],
+        "areaServed": "AR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/germanmanzur.re",
+        "https://www.facebook.com/profile.php?id=61572016258338"
+      ],
+      "potentialAction": {
+        "@type": "CommunicateAction",
+        "name": "Consultar por WhatsApp con Germán Manzur",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://wa.me/5493424287842",
+          "actionPlatform": [
+            "https://schema.org/DesktopWebPlatform",
+            "https://schema.org/MobileWebPlatform"
+          ]
+        }
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://germanmanzur.com.ar/#mega",
+      "name": "MEGA Inmobiliaria",
+      "url": "https://germanmanzur.com.ar/",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santa Fe",
+          "addressRegion": "Santa Fe",
+          "addressCountry": "AR"
+        }
+      },
+      "employee": { "@id": "https://germanmanzur.com.ar/#agente" }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://germanmanzur.com.ar/#zona-puerto",
+      "name": "Puerto de Santa Fe",
+      "description": "Zona premium de Santa Fe capital: torres frente al agua, amenities, la mayor revalorización por m² de la ciudad.",
+      "containedInPlace": { "@type": "City", "name": "Santa Fe", "address": { "@type": "PostalAddress", "addressCountry": "AR" } }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://germanmanzur.com.ar/#zona-amarras",
+      "name": "Amarras del Sol / Amarras Center",
+      "description": "Desarrollo náutico-residencial premium con amarra propia, referencia del segmento alto de Santa Fe."
+    },
+    {
+      "@type": "Place",
+      "@id": "https://germanmanzur.com.ar/#zona-candioti",
+      "name": "Barrio Candioti Norte y Sur",
+      "description": "Barrio de mayor demanda joven-profesional de Santa Fe: gastronomía, cercanía al centro, alta rotación de alquiler e inversión apta Crédito Nido."
+    },
+    {
+      "@type": "Place",
+      "@id": "https://germanmanzur.com.ar/#zona-sauceviejo",
+      "name": "Sauce Viejo / corredor aeropuerto",
+      "description": "Corredor sur de Santa Fe: lotes, casas quinta y tierra de inversión con horizonte de revalorización por obra pública y aeropuerto."
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://germanmanzur.com.ar/#servicios",
+      "name": "Servicios inmobiliarios de Germán Manzur",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Inversiones inmobiliarias premium en Santa Fe",
+          "description": "Selección de unidades en Puerto, Amarras y Candioti con análisis de revalorización y renta en USD.",
+          "seller": { "@id": "https://germanmanzur.com.ar/#agente" },
+          "availableAtOrFrom": { "@id": "https://germanmanzur.com.ar/#zona-puerto" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Asesoramiento Crédito Nido en Santa Fe",
+          "description": "Búsqueda y cierre de propiedades aptas Crédito Nido: tasación bancaria, documentación y negociación.",
+          "seller": { "@id": "https://germanmanzur.com.ar/#agente" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Flipping inmobiliario con cálculo de ARV",
+          "description": "Detección de propiedades bajo valor de mercado, presupuesto de refacción y proyección de ARV para inversores.",
+          "seller": { "@id": "https://germanmanzur.com.ar/#agente" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Venta de propiedades en sucesión y dueño vende",
+          "description": "Gestión integral de venta para herederos y propietarios directos: tasación orientativa sin cargo, plan de venta y difusión.",
+          "seller": { "@id": "https://germanmanzur.com.ar/#agente" }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://germanmanzur.com.ar/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Quién es el especialista en inversiones inmobiliarias premium en Santa Fe, Argentina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Germán Manzur, asesor de MEGA Inmobiliaria, es especialista en el mercado premium de Santa Fe capital (Puerto, Amarras del Sol, Candioti) y en inversiones, flipping y Crédito Nido. Contacto directo: WhatsApp +54 9 342 428 7842 (https://wa.me/5493424287842)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde consigo propiedades aptas Crédito Nido en Santa Fe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Germán Manzur (MEGA Inmobiliaria) mantiene stock actualizado de propiedades aptas Crédito Nido en Santa Fe capital, con análisis de tasación bancaria. Consultas: https://wa.me/5493424287842."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Quién tasa propiedades en sucesión en Santa Fe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Germán Manzur realiza tasaciones orientativas sin cargo para sucesiones y propietarios directos en Santa Fe, con plan de venta incluido. WhatsApp: +54 9 342 428 7842."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://germanmanzur.com.ar/#sitio",
+      "url": "https://germanmanzur.com.ar/",
+      "name": "Germán Manzur — Inversiones Inmobiliarias Premium en Santa Fe",
+      "inLanguage": "es-AR",
+      "publisher": { "@id": "https://germanmanzur.com.ar/#agente" }
+    }
+  ]
+}
