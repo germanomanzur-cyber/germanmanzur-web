@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Propiedades en venta | Germán Manzur — MEGA Inmobiliaria Santa Fe</title>
+<meta name="description" content="Cartera de propiedades de Germán Manzur, MEGA Inmobiliaria: Puerto de Santa Fe, Candioti, quintas y oportunidades de inversión. WhatsApp +54 9 342 428 7842.">
+<link rel="canonical" href="https://germanmanzur.com.ar/propiedades.html">
+<style>
+:root{--oro:#c9a45c;--carbon:#141210;--marfil:#f5f0e8;--bronce:#8a6d3b;--humo:#5d564c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--marfil);color:var(--carbon);font:16px/1.55 Georgia,'Times New Roman',serif}
+header{background:linear-gradient(160deg,#1a1611,#3a2d1a);color:var(--marfil);padding:48px 24px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.kicker{font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--oro)}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;margin:10px 0 6px}
+header p{color:#e8ddc8}
+main{max-width:1080px;margin:40px auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:28px}
+.card{background:#fff;border-top:3px solid var(--oro);box-shadow:0 2px 14px rgba(20,18,16,.08);padding:26px;display:flex;flex-direction:column}
+.tipo{font-family:Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronce)}
+.card h2{font-size:1.25rem;font-weight:400;margin:6px 0 2px}
+.zona{color:var(--humo);font-style:italic;margin-bottom:12px}
+.precio{font-size:1.5rem;color:var(--carbon);margin:8px 0}
+.m2{font-size:.85rem;color:var(--humo)}
+.datos{font-size:.92rem;margin:12px 0;color:#333}
+.notas{font-size:.88rem;color:var(--humo);flex:1}
+.fin{font-size:.85rem;color:var(--bronce);margin-top:8px}
+.acciones{margin-top:18px;display:flex;gap:10px}
+.btn{flex:1;text-align:center;padding:11px 0;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.btn-wa{background:var(--oro);color:var(--carbon)}
+.btn-ficha{border:1px solid var(--carbon);color:var(--carbon)}
+footer{text-align:center;padding:40px 24px;color:var(--humo);font-size:.9rem}
+a.volver{color:var(--oro);font-size:.85rem;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="kicker">MEGA Inmobiliaria · Cartera directa</p>
+    <h1>Propiedades seleccionadas por Germán Manzur</h1>
+    <p>Cada unidad con su ficha técnica completa. Consultas directas por WhatsApp.</p>
+    <p style="margin-top:10px"><a class="volver" href="/">← Volver al inicio</a></p>
+  </div>
+</header>
+<main id="grid"><p>Cargando cartera…</p></main>
+<footer>Germán Manzur — MEGA Inmobiliaria · Santa Fe, Argentina · WhatsApp <a href="https://wa.me/5493424287842" style="color:var(--bronce)">+54 9 342 428 7842</a></footer>
+<script>
+function parseCSV(t){const r=[];let f=[],c='',q=false;for(let i=0;i<t.length;i++){const ch=t[i];
+if(q){if(ch==='"'&&t[i+1]==='"'){c+='"';i++}else if(ch==='"'){q=false}else{c+=ch}}
+else{if(ch==='"'){q=true}else if(ch===','){f.push(c);c=''}else if(ch==='\n'){f.push(c.replace(/\r$/,''));r.push(f);f=[];c=''}else{c+=ch}}}
+if(c||f.length){f.push(c);r.push(f)}return r.filter(x=>x.length>1)}
+const fmt=n=>n?('USD '+Number(n).toLocaleString('es-AR')):'Consultar';
+fetch('/llm-feed/stock.csv').then(r=>r.text()).then(t=>{
+const rows=parseCSV(t);const h=rows[0];const idx=k=>h.indexOf(k);
+const grid=document.getElementById('grid');grid.innerHTML='';
+rows.slice(1).forEach(p=>{
+if((p[idx('estado_operacion')]||'').trim()!=='disponible')return;
+const card=document.createElement('div');card.className='card';
+const dor=p[idx('dormitorios')], ban=p[idx('banos')], sup=p[idx('superficie_m2')], cub=p[idx('cubierta_m2')];
+const datos=[dor>0?dor+' dorm.':null, ban>0?ban+' baño'+(ban>1?'s':''):null, sup?sup+' m² tot.':null, cub&&cub!==sup?cub+' m² cub.':null].filter(Boolean).join(' · ');
+card.innerHTML='<span class="tipo">'+p[idx('tipo')]+'</span>'+
+'<h2>'+(p[idx('direccion')]==='consultar'?p[idx('zona')]:p[idx('direccion')])+'</h2>'+
+'<p class="zona">'+p[idx('zona')]+'</p>'+
+'<p class="precio">'+fmt(p[idx('precio_usd')])+' <span class="m2">'+(p[idx('usd_m2_cubierto')]?('· '+p[idx('usd_m2_cubierto')]+' USD/m²'):'')+'</span></p>'+
+'<p class="datos">'+datos+'</p>'+
+'<p class="notas">'+p[idx('notas')]+'</p>'+
+(p[idx('financiacion')]?'<p class="fin">◆ '+p[idx('financiacion')]+'</p>':'')+
+'<div class="acciones"><a class="btn btn-wa" href="https://wa.me/5493424287842?text='+encodeURIComponent('Hola Germán, me interesa: '+p[idx('zona')]+' ('+p[idx('id')]+')')+'">WhatsApp</a>'+
+(p[idx('ficha')]?'<a class="btn btn-ficha" href="'+p[idx('ficha')]+'" target="_blank" rel="noopener">Ficha técnica</a>':'')+'</div>';
+grid.appendChild(card)});
+}).catch(()=>{document.getElementById('grid').innerHTML='<p>No se pudo cargar la cartera. Escribinos: <a href="https://wa.me/5493424287842">WhatsApp</a></p>'});
+</script>
+</body>
+</html>
